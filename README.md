@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![NPM](https://img.shields.io/npm/v/react-formik-ui.svg)](https://www.npmjs.com/package/react-mac-calculator)
+[![NPM](https://img.shields.io/npm/v/react-mac-calculator.svg)](https://www.npmjs.com/package/react-mac-calculator)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-Airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/KaiHotz/React-Mac-Calculator/blob/master/LICENSE)
 
