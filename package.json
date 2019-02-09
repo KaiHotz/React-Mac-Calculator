@@ -1,0 +1,141 @@
+{
+  "name": "react-mac-calculator",
+  "version": "1.0.0",
+  "description": "The same Calculator as my React-Calculator-App repo, but bundled with Rollup into a reusable component as ES6 Module",
+  "author": "Kai Hotz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:KaiHotz/React-Mac-Calculator.git"
+  },
+  "homepage": "https://KaiHotz.github.io/React-Mac-Calculator",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "scripts": {
+    "dev": "run-p build:watch start",
+    "start": "styleguidist server --open",
+    "styleguide:build": "styleguidist build",
+    "build": "rollup -c",
+    "build:watch": "rollup -c -w",
+    "test": "jest",
+    "test:coverage": "jest --coverage --forceExit --colors",
+    "lint": "esw --ext .jsx --ext .js --color",
+    "lint:fix": "npm run lint --fix",
+    "prepare": "npm run build",
+    "prerelease": "npm run lint:fix && npm run test:coverage && npm run build",
+    "release": "npm publish",
+    "predeploy": "npm run styleguide:build",
+    "deploy": "gh-pages -d styleguide"
+  },
+  "dependencies": {
+    "react-point": "^3.0.1"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@svgr/rollup": "^4.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "babel-preset-react-app": "^7.0.0",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.9.1",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-flowtype": "^3.2.1",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.2.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-watch": "^4.0.2",
+    "gh-pages": "^2.0.1",
+    "jasmine-expect": "^4.0.1",
+    "jest": "^24.1.0",
+    "jest-pnp-resolver": "^1.1.0",
+    "jest-resolve": "^24.1.0",
+    "node-sass": "^4.11.0",
+    "npm-run-all": "^4.1.5",
+    "prop-types": "^15.6.2",
+    "react": "^16.8.1",
+    "react-app-polyfill": "^0.2.0",
+    "react-dom": "^16.8.1",
+    "react-styleguidist": "^8.0.6",
+    "react-test-renderer": "^16.8.1",
+    "rollup": "^1.1.2",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-url": "^2.2.0",
+    "webpack": "^4.29.3",
+    "webpack-blocks": "^2.0.0-rc"
+  },
+  "files": [
+    "dist"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "resolver": "jest-pnp-resolver",
+    "setupFiles": [
+      "react-app-polyfill/jsdom",
+      "<rootDir>/scripts/enzymeConfig.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/scripts/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/scripts/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  }
+}
