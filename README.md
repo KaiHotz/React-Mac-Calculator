@@ -18,8 +18,15 @@ This is a reusable macOs like calculator component, nothing more nothing less
 ## Usage
 
 #### First install into your App
+
+#### with npm:
 ```
 npm i -S react-mac-calculator
+```
+
+#### with yarn:
+```
+yarn add react-mac-calculator
 ```
 
 #### Then import and use it in your App
