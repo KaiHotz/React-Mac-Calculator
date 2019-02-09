@@ -1,26 +1,11 @@
-import React, {
-  useState, useRef, useEffect,
-} from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
+import { useScale } from '../../utils/hooks'
 import './styles.css'
 
 const AutoScalingText = ({ children }) => {
-  const [scale, setScale] = useState(1)
   const node = useRef()
-
-  useEffect(() => {
-    const { parentNode } = node ?.current
-    const availableWidth = parentNode.offsetWidth
-    const actualWidth = node ?.current.offsetWidth
-    const actualScale = availableWidth / actualWidth
-    if (scale === actualScale) { return }
-
-    if (actualScale < 1) {
-      setScale(actualScale)
-    } else if (scale < 1) {
-      setScale(1)
-    }
-  })
+  const scale = useScale(node)
 
   return (
     <div
