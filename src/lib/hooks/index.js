@@ -25,6 +25,10 @@ export const useScale = ref => {
 export const useCalculator = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  const handleClick = (type, value = null) => () => {
+    dispatch({ type, value })
+  }
+
   const handleKeyDown = ({ key }) => {
     if (key === 'Enter') { key = '=' }
 
@@ -65,6 +69,6 @@ export const useCalculator = () => {
     }
   })
 
-  return [state, dispatch]
+  return [state, handleClick]
 }
 
