@@ -97,6 +97,7 @@ exports[`<Calculator /> should render 1`] = `
         />
         <CalculatorKey
           className="key-dot"
+          disabled={false}
           keyValue="●"
           onClick={[Function]}
         />
