@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import map from 'lodash.map';
 import { CalculatorDisplay } from '../CalculatorDisplay';
 import { CalculatorKey } from '../CalculatorKey';
 import { calculatorOperations, digitKeys } from '../../utils/helpers';
@@ -37,14 +37,20 @@ export const Calculator = () => {
           </div>
         </div>
         <div className="operator-keys">
-          {_.map(calculatorOperations, (value, key) => (
-            <CalculatorKey
-              key={`key-${value.name}`}
-              className={`key-${value.name}`}
-              onClick={() => handleClick(EInputTypes.performOperation, key)}
-              keyValue={value.symbol}
-            />
-          ))}
+          {map(calculatorOperations, (value, key) => {
+            if (value.show) {
+              return (
+                <CalculatorKey
+                  key={`key-${value.name}`}
+                  className={`key-${value.name}`}
+                  onClick={() => handleClick(EInputTypes.performOperation, key)}
+                  keyValue={value.symbol}
+                />
+              );
+            }
+
+            return null;
+          })}
         </div>
       </div>
     </div>

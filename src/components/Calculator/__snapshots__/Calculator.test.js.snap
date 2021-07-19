@@ -135,12 +135,6 @@ exports[`<Calculator /> should render 1`] = `
         keyValue="="
         onClick={[Function]}
       />
-      <CalculatorKey
-        className="key-enter"
-        key="key-enter"
-        keyValue="="
-        onClick={[Function]}
-      />
     </div>
   </div>
 </div>

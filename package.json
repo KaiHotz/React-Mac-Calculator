@@ -1,6 +1,6 @@
 {
   "name": "react-mac-calculator",
-  "version": "2.0.1",
+  "version": "2.0.4",
   "description": "The same Calculator as my React-Calculator-App repo, but bundled with Rollup into a reusable component as ES6 Module",
   "author": "Kai Hotz",
   "license": "MIT",
@@ -68,7 +68,7 @@
     "@types/classnames": "^2.3.1",
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.23",
-    "@types/lodash": "^4.14.171",
+    "@types/lodash.map": "^4.6.13",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
@@ -136,6 +136,6 @@
     "webpack": "^5.41.1"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash.map": "^4.6.0"
   }
 }
