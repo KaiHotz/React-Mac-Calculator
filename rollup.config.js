@@ -1,50 +1,45 @@
-import babel from 'rollup-plugin-babel'
-import commonjs from 'rollup-plugin-commonjs'
-import external from 'rollup-plugin-peer-deps-external'
-import postcss from 'rollup-plugin-postcss'
-import resolve from 'rollup-plugin-node-resolve'
-import url from 'rollup-plugin-url'
-import svgr from '@svgr/rollup'
-import { terser } from 'rollup-plugin-terser'
-import pkg from './package.json'
+import babel from '@rollup/plugin-babel';
+import typescript from 'rollup-plugin-typescript2';
+import commonjs from '@rollup/plugin-commonjs';
+import external from 'rollup-plugin-peer-deps-external';
+import postcss from 'rollup-plugin-postcss';
+import resolve from '@rollup/plugin-node-resolve';
+import url from '@rollup/plugin-url';
+import svgr from '@svgr/rollup';
+import { terser } from 'rollup-plugin-terser';
+import typescriptEngine from 'typescript';
 
 export default {
-  input: 'src/lib/index.js',
+  input: ['src/index.ts'],
   output: [
     {
-      file: pkg.main,
-      format: 'cjs',
-      sourcemap: true,
-    },
-    {
-      file: pkg.module,
+      dir: 'dist',
       format: 'es',
-      sourcemap: true,
+      preserveModules: true,
+      preserveModulesRoot: 'src',
     },
   ],
   plugins: [
     postcss({
-      plugins: [],
       minimize: true,
-      sourceMap: 'inline',
     }),
     external({
-      includeDependencies: false,
+      includeDependencies: true,
+    }),
+    typescript({
+      typescript: typescriptEngine,
+      include: ['*.js+(|x)', '**/*.js+(|x)'],
+      exclude: ['coverage', 'config', 'dist', 'node_modules/**', '*.test.{js+(|x), ts+(|x)}', '**/*.test.{js+(|x), ts+(|x)}'],
+    }),
+    babel({
+      extensions: ['.js', '.ts', 'tsx', 'jsx'],
+      babelHelpers: 'runtime',
+      exclude: /node_modules/,
     }),
     url(),
     svgr(),
     resolve(),
-    babel({
-      plugins: [
-        '@babel/plugin-proposal-object-rest-spread',
-        '@babel/plugin-proposal-optional-chaining',
-        '@babel/plugin-syntax-dynamic-import',
-        '@babel/plugin-proposal-class-properties',
-        'transform-react-remove-prop-types',
-      ],
-      exclude: 'node_modules/**',
-    }),
     commonjs(),
     terser(),
   ],
-}
+};

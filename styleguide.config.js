@@ -1,36 +1,28 @@
-const path = require('path')
-const {
-  createConfig, babel, css, sass, setOutput, match, file,
-} = require('webpack-blocks')
-
-const pkg = require('./package.json')
+const path = require('path');
+const pkg = require('./package.json');
+const webpackConfig = require('./config/webpack.config');
 
 module.exports = {
   title: `${pkg.name} v${pkg.version}`,
-  components: 'src/lib/components/**/[A-Z]*.js',
+  components: 'src/components/**/[A-Z]*.{jsx,tsx}',
   moduleAliases: {
-    [pkg.name]: path.resolve(__dirname, 'src/lib'),
+    [pkg.name]: path.resolve(__dirname, 'src'),
   },
   ribbon: {
     url: 'https://github.com/KaiHotz/React-Mac-Calculator',
     text: 'Fork me on GitHub',
   },
   showSidebar: true,
-  usageMode: 'collapse',
+  usageMode: 'expand',
   skipComponentsWithoutExample: true,
   theme: {
     color: {
-      link: '#1978c8',
+      link: '#065fd4',
       linkHover: '#00adef',
     },
     font: ['Helvetica', 'sans-serif'],
   },
   styles: {
-    Heading: {
-      heading2: {
-        fontSize: 26,
-      },
-    },
     Ribbon: {
       root: {
         backgroundImage: 'url("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")',
@@ -40,6 +32,11 @@ module.exports = {
       },
       link: {
         backgroundColor: '#065fd4',
+      },
+    },
+    Heading: {
+      heading2: {
+        fontSize: 26,
       },
     },
     ReactComponent: {
@@ -54,24 +51,14 @@ module.exports = {
       },
     },
   },
-  webpackConfig: createConfig([
-    setOutput('./build/bundle.js'),
-    babel(),
-    css(),
-    match(['*.scss', '!*node_modules*'], [
-      css(),
-      sass(/* node-sass options */),
-    ]),
-    match(['*.gif', '*.jpg', '*.jpeg', '*.png', '*.svg', '*.webp'], [
-      file(),
-    ]),
-  ]),
+  propsParser: require('react-docgen-typescript').withDefaultConfig('./tsconfig.json').parse,
+  webpackConfig,
   getExampleFilename(componentPath) {
-    return componentPath.replace(/\.js?$/, '.examples.md')
+    return componentPath.replace(/\.(jsx?|tsx?)$/, '.examples.md');
   },
   getComponentPathLine(componentPath) {
-    const name = path.basename(componentPath, '.js')
+    const name = path.basename(componentPath, '{.tsx, .jsx}');
 
-    return `import { ${name} } from '${pkg.name}';`
+    return `import { ${name} } from '${pkg.name}';`;
   },
-}
+};
