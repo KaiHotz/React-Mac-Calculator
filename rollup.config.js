@@ -15,8 +15,10 @@ export default {
     {
       dir: 'dist',
       format: 'es',
-      preserveModules: true,
-      preserveModulesRoot: 'src',
+    },
+    {
+      dir: 'dist',
+      format: 'cjs',
     },
   ],
   plugins: [
