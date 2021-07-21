@@ -1,2 +1,2 @@
-export { Calculator } from './components/Calculator';
+export { Calculator } from './Calculator';
 export * from './types';

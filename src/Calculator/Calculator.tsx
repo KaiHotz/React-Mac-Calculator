@@ -1,10 +1,9 @@
 import React from 'react';
 import map from 'lodash.map';
-import { CalculatorDisplay } from '../CalculatorDisplay';
-import { CalculatorKey } from '../CalculatorKey';
-import { calculatorOperations, digitKeys } from '../../utils/helpers';
-import { useCalculator } from '../../hooks/useCalculator';
-import { EInputTypes } from '../../types';
+import { CalculatorDisplay, CalculatorKey } from '../components';
+import { calculatorOperations, digitKeys } from '../utils/helpers';
+import { useCalculator } from '../hooks/useCalculator';
+import { EInputTypes } from '../types';
 import './Calculator.scss';
 
 export const Calculator = () => {
