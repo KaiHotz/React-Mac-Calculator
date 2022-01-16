@@ -34,6 +34,7 @@
     "stylelint": "stylelint \"**/*.{css,scss,sass}\"",
     "stylelint:fix": "stylelint \"**/*.{css,scss,sass}\" --fix",
     "check-types": "tsc",
+    "audit:fix": "npx yarn-audit-fix",
     "prepare": "yarn build",
     "prerelease": "yarn lint:fix && yarn test:coverage",
     "release": "yarn publish",
@@ -132,7 +133,8 @@
     "ts-toolbelt": "^9.6.0",
     "typescript": "^4.5.4",
     "url-loader": "^4.1.1",
-    "webpack": "^5.66.0"
+    "webpack": "^5.66.0",
+    "yarn-audit-fix": "^9.0.6"
   },
   "dependencies": {
     "lodash.map": "^4.6.0"
