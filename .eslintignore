@@ -6,4 +6,4 @@ dist
 node_modules
 coverage
 *.test.*
-styleguide/
+storybook-static
