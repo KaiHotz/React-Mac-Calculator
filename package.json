@@ -1,6 +1,6 @@
 {
   "name": "react-mac-calculator",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "The same Calculator as my React-Calculator-App repo, but bundled with Rollup into a reusable component as ES6 Module",
   "author": "Kai Hotz",
   "license": "MIT",
