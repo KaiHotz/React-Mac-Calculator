@@ -149,5 +149,8 @@
     "yarn-audit-fix": "^9.3.10"
   },
   "resolutions": {
+    "postcss": "^8.4.23",
+    "loader-utils": "^1.4.1",
+    "json5": "^1.0.2"
   }
 }
