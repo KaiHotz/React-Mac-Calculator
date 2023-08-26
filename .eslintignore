@@ -7,9 +7,3 @@ node_modules
 coverage
 storybook-static
 .storybook
-
-**/__tests__
-*.test.jsx
-*.test.tsx
-*.test.js
-*.test.ts

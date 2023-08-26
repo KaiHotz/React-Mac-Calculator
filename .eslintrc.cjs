@@ -40,6 +40,7 @@ module.exports = {
     'src/graphql/generated/*',
   ],
   rules: {
+    "import/namespace": "off",
     'newline-before-return': 'error',
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
@@ -93,7 +94,7 @@ module.exports = {
         ],
       },
     ],
-    'import/no-extraneous-dependencies': 'error',
+    'import/no-extraneous-dependencies': 0,
   },
   ignorePatterns: [".eslintrc.cjs", "vitest.config.ts", "setupTests.ts"],
   overrides: [
