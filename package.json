@@ -26,11 +26,8 @@
     "stylelint:fix": "stylelint \"**/*.{css,scss,sass}\" --fix",
     "check-types": "tsc --noEmit true",
     "ci": "yarn lint && yarn test --watch=false",
-    "audit:fix": "npx yarn-audit-fix",
     "test": "vitest --config ./vitest.config.ts",
-    "prepare": "yarn build",
-    "prerelease": "yarn lint:fix && yarn test:coverage",
-    "release": "npm publish",
+    "release": "yarn lint:fix && yarn test && yarn build && npm publish",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "storybook:deploy": "yarn storybook:build && touch ./storybook-static/.nojekyll && gh-pages -d ./storybook-static -t true"
@@ -97,8 +94,7 @@
     "tslib": "^2.6.2",
     "typescript": "5.1.6",
     "vite": "^4.4.9",
-    "vitest": "^0.34.3",
-    "yarn-audit-fix": "^10.0.1"
+    "vitest": "^0.34.3"
   },
   "packageManager": "yarn@3.6.3"
 }
